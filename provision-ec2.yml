@@ -7,4 +7,11 @@
     - include_vars: ~/Documents/AnsibleLab/roles/provision-ec2-instance/ec2-vars/{{type}}.yml
    roles:
     - provision-ec2-instance
-    - nginx
+
+ - hosts: all
+   gather_facts: true
+   become: yes
+   pre_tasks:
+    - include_vars: ~/Documents/AnsibleLab/roles/provision-ec2-instance/ec2-vars/{{type}}.yml
+   roles:
+   - nginx

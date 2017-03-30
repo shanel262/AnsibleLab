@@ -4,14 +4,31 @@
    gather_facts: false
    user: root
    pre_tasks:
-    - include_vars: ~/Documents/AnsibleLab/roles/provision-ec2-instance/ec2-vars/{{type}}.yml
+    - include_vars: ~/Documents/AnsibleLab/roles/nginx/vars/nginxVars.yml
    roles:
     - provision-ec2-instance
 
- - hosts: all
+ - hosts: localhost
+   connection: local
+   gather_facts: false
+   user: root
+   pre_tasks:
+    - include_vars: ~/Documents/AnsibleLab/roles/haproxy/vars/haproxyVars.yml
+   roles:
+    - provision-ec2-instance
+
+ - hosts: nginx
    gather_facts: true
    become: yes
    pre_tasks:
-    - include_vars: ~/Documents/AnsibleLab/roles/provision-ec2-instance/ec2-vars/{{type}}.yml
+    - include_vars: ~/Documents/AnsibleLab/roles/nginx/vars/nginxVars.yml
    roles:
    - nginx
+
+ - hosts: haproxy
+   gather_facts: true
+   become: yes
+   pre_tasks:
+    - include_vars: ~/Documents/AnsibleLab/roles/haproxy/vars/haproxyVars.yml
+   roles:
+   - haproxy

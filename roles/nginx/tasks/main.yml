@@ -14,8 +14,4 @@
 
    - name: NGINX | Installing NGINX
      apt: pkg=nginx state=installed update_cache=true
-   
-   - name: NGINX | Starting NGINX
-     service:
-      name: nginx
-      state: started
+     notify: Start nginx

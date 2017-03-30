@@ -8,3 +8,4 @@ ec2_tag_Name: "Nginx"
 ec2_tag_Type: "nginx"
 ec2_tag_Environment: "production"
 ec2_volume_size: 8
+ec2_instance_count: 2

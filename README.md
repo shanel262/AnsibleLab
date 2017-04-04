@@ -15,6 +15,9 @@ Ansible Vault password: ansible
 
 # Vars folder
 Each vars folder contains an encrypted vars file (encrypted with Ansible Vault). These files specify the following variables:
+<details name="Variables">
+<summary>Variables:</summary>
+
 - ec2_keypair: "ShanePersonalAWSKey" //Enter your own key here
 - ec2_security_group: "sg-86787de0" //Enter your own security group
 - ec2_instance_type: "t2.micro"
@@ -26,5 +29,6 @@ Each vars folder contains an encrypted vars file (encrypted with Ansible Vault).
 - ec2_tag_Environment: "production"
 - ec2_volume_size: 8
 - ec2_instance_count: 1 //Specifies how many instances to start
+</details>
 
 By Shane Lacey - 20013687
